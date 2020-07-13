@@ -1,0 +1,19 @@
+@(userList : List[User])
+
+<html>
+<head>
+<title>All User</title>
+</head>
+
+<body>
+
+<h1>All User</h1>
+
+@for(user <- userList){
+<a href=#><h2>User-@user.userId</h2></a>
+<h3><p> Name :- @user.fName @user.mName @user.lName </p></h3>
+<h3><p> Email :- @user.userEmail </p></h3>
+<h3><p> Password :- @user.password </p></h3>
+}
+</body>
+</html>
