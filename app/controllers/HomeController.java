@@ -37,21 +37,16 @@ public class HomeController extends Controller {
 	// save User
 	public Result saveUser(Http.Request request) {
 		Form<User> userform = formFactory.form(User.class).bindFromRequest(request);
-		System.out.println(userform);
 		User user = userform.get();
-		System.out.println("USER DATA : --" + user.fName);
 		userServices.addUser(user);
 		return redirect(routes.HomeController.addUser());
 	}
 
 	// Get method edit User
 	public Result editUser(Integer userId) throws SQLException {
-		System.out.println("edit User method Controller Userid :---" + userId);
 		User user = userServices.findById(userId);
 		if (user == null)
 			return ok("User Not Exist");
-		System.out.println("edit User method Controller username :---" + user.getfName());
-		System.out.println("edit User method Controller userList" + userList);
 		Form<User> userForm = formFactory.form(User.class);
 		return ok(views.html.edit.render(userForm, user));
 	}
@@ -88,7 +83,6 @@ public class HomeController extends Controller {
 	// get all user
 	public Result getAllUser() throws SQLException {
 		List<User> userData = userServices.getUsers();
-		System.out.println(userData);
 		return ok(views.html.showuser.render(userData));
 	}
 

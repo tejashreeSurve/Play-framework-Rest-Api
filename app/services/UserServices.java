@@ -31,7 +31,6 @@ public class UserServices {
 	public User findById(Integer id) throws SQLException {
 		for (User user : getUsers()) {
 			if (user.userId == id) {
-				System.out.println("userServices Methods print name  : ---" + user.getfName());
 				return user;
 			}
 		}

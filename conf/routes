@@ -9,7 +9,6 @@ GET		/addUser					controllers.HomeController.addUser()
 POST 	/addUser					controllers.HomeController.saveUser(request : Request)
 GET		/edit/:userId			controllers.HomeController.editUser(userId  :  Integer)
 POST	/edit					controllers.HomeController.updateUser(request : Request)
-GET		/bodyParse				controllers.HomeController.bodyParse(request :Request)
 GET 		/login			controllers.HomeController.loginUser()
 POST		/login			controllers.HomeController.signUp(request:Request)
 
