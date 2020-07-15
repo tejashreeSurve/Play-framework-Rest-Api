@@ -1,12 +1,16 @@
 package models;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
+import javax.persistence.Table;
 
 @Entity
-public class User extends Model{
+@Table(name = "userData")
+public class User {
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	public Integer userId;
 	public String fName;
 	public String mName;
@@ -16,15 +20,6 @@ public class User extends Model{
 
 	public User() {
 
-	}
-
-	public User(Integer userId, String fName, String mName, String lName, String userEmail, String password) {
-		this.userId = userId;
-		this.fName = fName;
-		this.mName = mName;
-		this.lName = lName;
-		this.userEmail = userEmail;
-		this.password = password;
 	}
 
 	public Integer getUserId() {

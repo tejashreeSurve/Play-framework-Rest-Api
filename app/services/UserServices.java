@@ -1,18 +1,30 @@
 package services;
 
+import java.sql.SQLException;
 import java.util.List;
 
+import javax.inject.Inject;
+
 import models.User;
+import repository.DatabaseConnection;
 
 public class UserServices {
+	private DatabaseConnection databaseConnection;
 
-	public void addUser(User user,List<User> userList )  {
-		int id = userList.size() + 1;
-		user.setUserId(id);
-		userList.add(user);
+	@Inject
+	public UserServices(DatabaseConnection databaseConnection) {
+		this.databaseConnection = databaseConnection;
 	}
 
-	public User findById(Integer id,List<User> userList) {
+	public void addUser(User user) {
+		databaseConnection.insert(user);
+	}
+
+	public List<User> getUsers() throws SQLException {
+		return databaseConnection.executeSql();
+	}
+
+	public User findById(Integer id, List<User> userList) {
 		for (User user : userList) {
 			if (user.userId.equals(id)) {
 				System.out.println("userServices Methods print name  : ---" + user.getfName());
@@ -22,18 +34,7 @@ public class UserServices {
 		return null;
 	}
 
-	public User updateUser(User editedUser,List<User> userList) {
-		int id = editedUser.getUserId();
-		for (User user : userList) {
-			if (user.userId.equals(id)) {
-				user.setfName(editedUser.getfName());
-				user.setmName(editedUser.getmName());
-				user.setlName(editedUser.getlName());
-				user.setUserEmail(editedUser.getUserEmail());
-				user.setPassword(editedUser.getPassword());
-				return user;
-			}
-		}
-		return null;
+	public User updateUser(User editedUser) {
+		return databaseConnection.updateQuery(editedUser);
 	}
 }

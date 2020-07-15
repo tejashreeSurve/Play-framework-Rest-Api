@@ -13,6 +13,12 @@ libraryDependencies ++= Seq(
   javaJdbc,javaJpa
 )
 
+libraryDependencies ++= Seq(
+ 
+   "org.postgresql" % "postgresql" % "42.2.12",
+    
+ 
+)
 libraryDependencies += jdbc
 
 EclipseKeys.projectFlavor := EclipseProjectFlavor.Java
