@@ -24,7 +24,7 @@ import scala.jdk.CollectionConverters._
 object index extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template1[String,play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*1.2*/(name: String):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*1.2*/(message: String):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 
@@ -37,7 +37,7 @@ Seq[Any](format.raw/*2.1*/("""
 <html>
 <head><title>All Users</title></head>
 <body>
-<h1>Welcome """),_display_(/*10.14*/name),format.raw/*10.18*/("""/h1>
+<h1>"""),_display_(/*10.6*/message),format.raw/*10.13*/("""</h1>
 
 </body>
 
@@ -47,9 +47,9 @@ Seq[Any](format.raw/*2.1*/("""
     }
   }
 
-  def render(name:String): play.twirl.api.HtmlFormat.Appendable = apply(name)
+  def render(message:String): play.twirl.api.HtmlFormat.Appendable = apply(message)
 
-  def f:((String) => play.twirl.api.HtmlFormat.Appendable) = (name) => apply(name)
+  def f:((String) => play.twirl.api.HtmlFormat.Appendable) = (message) => apply(message)
 
   def ref: this.type = this
 
@@ -58,10 +58,10 @@ Seq[Any](format.raw/*2.1*/("""
 
               /*
                   -- GENERATED --
-                  DATE: 2020-07-10T13:19:11.799261
+                  DATE: 2020-07-15T13:03:18.422082
                   SOURCE: /home/teju/Downloads/usermangement-play/app/views/index.scala.html
-                  HASH: 820a9a88c01d1b22b3cc7c30cae1cc51b0201fce
-                  MATRIX: 907->1|1015->16|1042->17|1073->23|1104->46|1143->48|1171->49|1247->96|1274->97|1371->167|1396->171
+                  HASH: b6f7599bf1b71758520447e9a92fa6a86468a656
+                  MATRIX: 907->1|1018->19|1045->20|1076->26|1107->49|1146->51|1174->52|1250->99|1277->100|1365->162|1393->169
                   LINES: 27->1|32->2|33->3|33->3|33->3|33->3|33->3|35->5|35->5|40->10|40->10
                   -- GENERATED --
               */

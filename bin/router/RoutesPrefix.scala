@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/teju/Downloads/usermangement-play/conf/routes
-// @DATE:Sat Jul 11 11:19:22 IST 2020
+// @DATE:Wed Jul 15 16:02:45 IST 2020
 
 
 package router {

@@ -1,0 +1,16 @@
+@(loginForm:Form[Login]) @import helper._
+<html>
+<head>
+<title>Login</title>
+</head>
+<body>
+	<h1>------Login Here----</h1>
+
+	<form action="@routes.HomeController.signUp()" method="POST">
+		<br> <label><h3>Email :-</h3></label>
+		 <input name="userEmail" type="text"> <br> 
+		 <label><h3>Password :-</h3>
+		<input name="password" type="password"> <br> <br> 
+		<input type="submit" value="Login">
+</body>
+</html>

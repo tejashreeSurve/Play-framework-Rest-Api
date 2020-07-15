@@ -24,42 +24,44 @@ import scala.jdk.CollectionConverters._
 object addUser extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template1[Form[User],play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*5.2*/(userform:Form[User]):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*1.3*/(userForm:Form[User]):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
+/*1.26*/import helper._
 
 
-Seq[Any](format.raw/*6.1*/("""
+Seq[Any](format.raw/*1.24*/(""" """),format.raw/*2.1*/("""<html>
+<head>
+<title>Add New User</title>
+</head>
+<body>
+	<h1>------To Add new User fill the Form-----</h1>
 
-
-"""),format.raw/*9.1*/("""<form action=""""),_display_(/*9.16*/routes/*9.22*/.HomeController.save()),format.raw/*9.44*/("""" method="post">
-
-
-	<div class="form-group row  ">
-		<label class="col-sm-2 form-control-label">Phone Number</label>
-		<div class="col-sm-10">
-			<input name="phoneNumber" id="lastName" class="form-control"
-				type="text" placeholder="Phone Number">
-		</div>
-	</div>
-
-
-	<div class="form-group row ">
-		<label class="col-sm-2 form-control-label">First Name</label>
-		<div class="col-sm-10">
-			<input name="firstName" id="firstName" class="form-control"
-				type="text" placeholder="First Name">
-		</div>
-	</div>
-	
-	"""))
+	<form action=""""),_display_(/*9.17*/routes/*9.23*/.HomeController.saveUser()),format.raw/*9.49*/("""" method="POST">
+		<br> <label>
+			<h3>Id :-</h3>
+		</label> <input name="userId" type="text"> <br> <label>
+			<h3>First Name :-</h3>
+		</label> <input name="fName" type="text"> <br> <label>
+			<h3>Middle Name :-</h3>
+		</label> <input name="mName" type="text"> <br> <label>
+			<h3>Last Name :-</h3>
+		</label> <input name="lName" type="text"> <br> <label>
+			<h3>Email Id :-</h3>
+		</label> <input name="userEmail" type="text"> <br> <label>
+			<h3>Password :-</h3>
+		</label> <input name="password" type="text"> <br> <br> <input
+			type="submit" value="Add User">
+</body>
+</html>
+"""))
       }
     }
   }
 
-  def render(userform:Form[User]): play.twirl.api.HtmlFormat.Appendable = apply(userform)
+  def render(userForm:Form[User]): play.twirl.api.HtmlFormat.Appendable = apply(userForm)
 
-  def f:((Form[User]) => play.twirl.api.HtmlFormat.Appendable) = (userform) => apply(userform)
+  def f:((Form[User]) => play.twirl.api.HtmlFormat.Appendable) = (userForm) => apply(userForm)
 
   def ref: this.type = this
 
@@ -68,11 +70,11 @@ Seq[Any](format.raw/*6.1*/("""
 
               /*
                   -- GENERATED --
-                  DATE: 2020-07-11T11:23:48.042447
+                  DATE: 2020-07-14T16:47:25.391239
                   SOURCE: /home/teju/Downloads/usermangement-play/app/views/addUser.scala.html
-                  HASH: f0c15227e031a571ed012bcf3f1bc111dd8dfba1
-                  MATRIX: 913->5|1028->27|1057->30|1098->45|1112->51|1154->73
-                  LINES: 27->5|32->6|35->9|35->9|35->9|35->9
+                  HASH: bb5ff0a5c39225ab2ae8161b790ebea73540bd53
+                  MATRIX: 913->2|1008->25|1053->23|1080->41|1231->166|1245->172|1291->198
+                  LINES: 27->1|30->1|33->1|33->2|40->9|40->9|40->9
                   -- GENERATED --
               */
           

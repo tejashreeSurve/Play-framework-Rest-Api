@@ -21,10 +21,10 @@ import play.data._
 import play.core.j.PlayFormsMagicForJava._
 import scala.jdk.CollectionConverters._
 
-object showuser extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template1[Set[User],play.twirl.api.HtmlFormat.Appendable] {
+object showuser extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template1[List[User],play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*1.2*/(users : Set[User]):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*1.2*/(userData : List[User]):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 
@@ -39,8 +39,8 @@ Seq[Any](format.raw/*2.1*/("""
 
 <h1>All User</h1>
 
-"""),_display_(/*12.2*/for(user <- users) yield /*12.20*/{_display_(Seq[Any](format.raw/*12.21*/("""
-"""),format.raw/*13.1*/("""<a href=#><h2>User-"""),_display_(/*13.21*/user/*13.25*/.userId),format.raw/*13.32*/("""</h2></a>
+"""),_display_(/*12.2*/for(user <- userData) yield /*12.23*/{_display_(Seq[Any](format.raw/*12.24*/("""
+"""),format.raw/*13.1*/("""<a href=#><h2>User-"""),_display_(/*13.21*/user/*13.25*/.getUserId),format.raw/*13.35*/("""</h2></a>
 <h3><p> Name :- """),_display_(/*14.18*/user/*14.22*/.fName),format.raw/*14.28*/(""" """),_display_(/*14.30*/user/*14.34*/.mName),format.raw/*14.40*/(""" """),_display_(/*14.42*/user/*14.46*/.lName),format.raw/*14.52*/(""" """),format.raw/*14.53*/("""</p></h3>
 <h3><p> Email :- """),_display_(/*15.19*/user/*15.23*/.userEmail),format.raw/*15.33*/(""" """),format.raw/*15.34*/("""</p></h3>
 <h3><p> Password :- """),_display_(/*16.22*/user/*16.26*/.password),format.raw/*16.35*/(""" """),format.raw/*16.36*/("""</p></h3>
@@ -51,9 +51,9 @@ Seq[Any](format.raw/*2.1*/("""
     }
   }
 
-  def render(users:Set[User]): play.twirl.api.HtmlFormat.Appendable = apply(users)
+  def render(userData:List[User]): play.twirl.api.HtmlFormat.Appendable = apply(userData)
 
-  def f:((Set[User]) => play.twirl.api.HtmlFormat.Appendable) = (users) => apply(users)
+  def f:((List[User]) => play.twirl.api.HtmlFormat.Appendable) = (userData) => apply(userData)
 
   def ref: this.type = this
 
@@ -62,10 +62,10 @@ Seq[Any](format.raw/*2.1*/("""
 
               /*
                   -- GENERATED --
-                  DATE: 2020-07-11T10:50:20.717886
+                  DATE: 2020-07-14T17:57:09.865876
                   SOURCE: /home/teju/Downloads/usermangement-play/app/views/showuser.scala.html
-                  HASH: 56521c5fc0dc293293ce060f597b96fe006c65bb
-                  MATRIX: 913->1|1026->21|1053->22|1154->97|1188->115|1227->116|1255->117|1302->137|1315->141|1343->148|1397->175|1410->179|1437->185|1466->187|1479->191|1506->197|1535->199|1548->203|1575->209|1604->210|1659->238|1672->242|1703->252|1732->253|1790->284|1803->288|1833->297|1862->298|1903->309|1931->310
+                  HASH: 8bd4ce9ea9de82688472d015365c353f82cb313f
+                  MATRIX: 914->1|1031->25|1058->26|1159->101|1196->122|1235->123|1263->124|1310->144|1323->148|1354->158|1408->185|1421->189|1448->195|1477->197|1490->201|1517->207|1546->209|1559->213|1586->219|1615->220|1670->248|1683->252|1714->262|1743->263|1801->294|1814->298|1844->307|1873->308|1914->319|1942->320
                   LINES: 27->1|32->2|33->3|42->12|42->12|42->12|43->13|43->13|43->13|43->13|44->14|44->14|44->14|44->14|44->14|44->14|44->14|44->14|44->14|44->14|45->15|45->15|45->15|45->15|46->16|46->16|46->16|46->16|47->17|48->18
                   -- GENERATED --
               */

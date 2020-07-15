@@ -1,0 +1,26 @@
+ @(userForm:Form[User],user : User) @import helper._
+<html>
+<head>
+<title>Edit Form</title>
+</head>
+<body>
+	<h1>------Edit Form ----</h1>
+
+	@helper.form(action= routes.HomeController.updateUser()){
+		<br> <label>
+			<h3>Id :-</h3>
+		</label> <input name="userId" type="text" value=@user.userId readonly="readonly"> <br> <label>
+			<h3>First Name :-</h3>
+		</label> <input name="fName" type="text" value=@user.fName> <br> <label>
+			<h3>Middle Name :-</h3>
+		</label> <input name="mName" type="text" value=@user.mName> <br> <label>
+			<h3>Last Name :-</h3>
+		</label> <input name="lName" type="text" value=@user.lName> <br> <label>
+			<h3>Email Id :-</h3>
+		</label> <input name="userEmail" type="text" value=@user.userEmail ><br> <label>
+			<h3>Password :-</h3>
+		</label> <input name="password" type="text" value=@user.password> <br> <br> <input
+			type="submit" value="Edit User">
+			}
+</body>
+</html>

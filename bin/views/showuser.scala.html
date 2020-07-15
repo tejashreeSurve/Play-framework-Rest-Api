@@ -1,4 +1,4 @@
-@(users : Set[User])
+@(userData : List[User])
 
 <html>
 <head>
@@ -9,8 +9,8 @@
 
 <h1>All User</h1>
 
-@for(user <- users){
-<a href=#><h2>User-@user.userId</h2></a>
+@for(user <- userData){
+<a href=#><h2>User-@user.getUserId</h2></a>
 <h3><p> Name :- @user.fName @user.mName @user.lName </p></h3>
 <h3><p> Email :- @user.userEmail </p></h3>
 <h3><p> Password :- @user.password </p></h3>
