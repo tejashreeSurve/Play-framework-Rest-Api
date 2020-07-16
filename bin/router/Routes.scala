@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/teju/Downloads/usermangement-play/conf/routes
-// @DATE:Wed Jul 15 16:02:45 IST 2020
+// @DATE:Thu Jul 16 17:25:01 IST 2020
 
 package router
 
@@ -16,7 +16,7 @@ class Routes(
   override val errorHandler: play.api.http.HttpErrorHandler, 
   // @LINE:7
   HomeController_1: controllers.HomeController,
-  // @LINE:20
+  // @LINE:16
   Assets_0: controllers.Assets,
   val prefix: String
 ) extends GeneratedRouter {
@@ -25,7 +25,7 @@ class Routes(
    def this(errorHandler: play.api.http.HttpErrorHandler,
     // @LINE:7
     HomeController_1: controllers.HomeController,
-    // @LINE:20
+    // @LINE:16
     Assets_0: controllers.Assets
   ) = this(errorHandler, HomeController_1, Assets_0, "/")
 
@@ -41,12 +41,11 @@ class Routes(
 
   def documentation = List(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """users""", """controllers.HomeController.getAllUser()"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """addUser""", """controllers.HomeController.addUser()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """addUser""", """controllers.HomeController.addUser(request:Request)"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """addUser""", """controllers.HomeController.saveUser(request:Request)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """edit/""" + "$" + """userId<[^/]+>""", """controllers.HomeController.editUser(userId:Integer)"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """edit""", """controllers.HomeController.updateUser(request:Request)"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """bodyParse""", """controllers.HomeController.bodyParse(request:Request)"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """login""", """controllers.HomeController.loginUser()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """login""", """controllers.HomeController.loginUser(equest:Request)"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """login""", """controllers.HomeController.signUp(request:Request)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """assets/""" + "$" + """file<.+>""", """controllers.Assets.versioned(path:String = "/public", file:Asset)"""),
     Nil
@@ -80,12 +79,14 @@ GET     /		                     controllers.HomeController.index""",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("addUser")))
   )
   private[this] lazy val controllers_HomeController_addUser1_invoker = createInvoker(
-    HomeController_1.addUser(),
+    
+    (req:play.mvc.Http.Request) =>
+      HomeController_1.addUser(fakeValue[play.mvc.Http.Request]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.HomeController",
       "addUser",
-      Nil,
+      Seq(classOf[play.mvc.Http.Request]),
       "GET",
       this.prefix + """addUser""",
       """""",
@@ -152,36 +153,18 @@ GET     /		                     controllers.HomeController.index""",
   )
 
   // @LINE:12
-  private[this] lazy val controllers_HomeController_bodyParse5_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("bodyParse")))
-  )
-  private[this] lazy val controllers_HomeController_bodyParse5_invoker = createInvoker(
-    
-    (req:play.mvc.Http.Request) =>
-      HomeController_1.bodyParse(fakeValue[play.mvc.Http.Request]),
-    play.api.routing.HandlerDef(this.getClass.getClassLoader,
-      "router",
-      "controllers.HomeController",
-      "bodyParse",
-      Seq(classOf[play.mvc.Http.Request]),
-      "GET",
-      this.prefix + """bodyParse""",
-      """""",
-      Seq()
-    )
-  )
-
-  // @LINE:13
-  private[this] lazy val controllers_HomeController_loginUser6_route = Route("GET",
+  private[this] lazy val controllers_HomeController_loginUser5_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("login")))
   )
-  private[this] lazy val controllers_HomeController_loginUser6_invoker = createInvoker(
-    HomeController_1.loginUser(),
+  private[this] lazy val controllers_HomeController_loginUser5_invoker = createInvoker(
+    
+    (req:play.mvc.Http.Request) =>
+      HomeController_1.loginUser(fakeValue[play.mvc.Http.Request]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.HomeController",
       "loginUser",
-      Nil,
+      Seq(classOf[play.mvc.Http.Request]),
       "GET",
       this.prefix + """login""",
       """""",
@@ -189,11 +172,11 @@ GET     /		                     controllers.HomeController.index""",
     )
   )
 
-  // @LINE:14
-  private[this] lazy val controllers_HomeController_signUp7_route = Route("POST",
+  // @LINE:13
+  private[this] lazy val controllers_HomeController_signUp6_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("login")))
   )
-  private[this] lazy val controllers_HomeController_signUp7_invoker = createInvoker(
+  private[this] lazy val controllers_HomeController_signUp6_invoker = createInvoker(
     
     (req:play.mvc.Http.Request) =>
       HomeController_1.signUp(fakeValue[play.mvc.Http.Request]),
@@ -209,11 +192,11 @@ GET     /		                     controllers.HomeController.index""",
     )
   )
 
-  // @LINE:20
-  private[this] lazy val controllers_Assets_versioned8_route = Route("GET",
+  // @LINE:16
+  private[this] lazy val controllers_Assets_versioned7_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("assets/"), DynamicPart("file", """.+""",false)))
   )
-  private[this] lazy val controllers_Assets_versioned8_invoker = createInvoker(
+  private[this] lazy val controllers_Assets_versioned7_invoker = createInvoker(
     Assets_0.versioned(fakeValue[String], fakeValue[Asset]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -239,7 +222,8 @@ GET     /		                     controllers.HomeController.index""",
     // @LINE:8
     case controllers_HomeController_addUser1_route(params@_) =>
       call { 
-        controllers_HomeController_addUser1_invoker.call(HomeController_1.addUser())
+        controllers_HomeController_addUser1_invoker.call(
+          req => HomeController_1.addUser(req))
       }
   
     // @LINE:9
@@ -263,29 +247,23 @@ GET     /		                     controllers.HomeController.index""",
       }
   
     // @LINE:12
-    case controllers_HomeController_bodyParse5_route(params@_) =>
+    case controllers_HomeController_loginUser5_route(params@_) =>
       call { 
-        controllers_HomeController_bodyParse5_invoker.call(
-          req => HomeController_1.bodyParse(req))
+        controllers_HomeController_loginUser5_invoker.call(
+          req => HomeController_1.loginUser(req))
       }
   
     // @LINE:13
-    case controllers_HomeController_loginUser6_route(params@_) =>
+    case controllers_HomeController_signUp6_route(params@_) =>
       call { 
-        controllers_HomeController_loginUser6_invoker.call(HomeController_1.loginUser())
-      }
-  
-    // @LINE:14
-    case controllers_HomeController_signUp7_route(params@_) =>
-      call { 
-        controllers_HomeController_signUp7_invoker.call(
+        controllers_HomeController_signUp6_invoker.call(
           req => HomeController_1.signUp(req))
       }
   
-    // @LINE:20
-    case controllers_Assets_versioned8_route(params@_) =>
+    // @LINE:16
+    case controllers_Assets_versioned7_route(params@_) =>
       call(Param[String]("path", Right("/public")), params.fromPath[Asset]("file", None)) { (path, file) =>
-        controllers_Assets_versioned8_invoker.call(Assets_0.versioned(path, file))
+        controllers_Assets_versioned7_invoker.call(Assets_0.versioned(path, file))
       }
   }
 }

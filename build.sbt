@@ -15,7 +15,7 @@ libraryDependencies ++= Seq(
 
 libraryDependencies ++= Seq(
  
-   "org.postgresql" % "postgresql" % "42.2.12",
+   "org.postgresql" % "postgresql" % "42.2.12"
     
  
 )

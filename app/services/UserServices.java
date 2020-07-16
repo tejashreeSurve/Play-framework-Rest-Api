@@ -39,11 +39,16 @@ public class UserServices {
 
 	// find user by email
 	public User findByEmail(String email) throws SQLException {
-		return databaseConnection.findByEmail(email);
+		for (User user : getUsers()) {
+			if (user.userEmail.equals(email)) {
+				return user;
+			}
+		}
+		return null;
 	}
 
 	// update user
-	public User updateUser(User editedUser) {
-		return databaseConnection.updateQuery(editedUser);
+	public void updateUser(User editedUser) {
+		 databaseConnection.updateQuery(editedUser);
 	}
 }

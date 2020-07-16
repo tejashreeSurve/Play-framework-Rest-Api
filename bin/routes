@@ -4,17 +4,13 @@
 
 # An example controller showing a sample home page
 #GET     /		                     controllers.HomeController.index
-GET     /users						controllers.HomeController.getAllUser()
-GET		/addUser					controllers.HomeController.addUser()
+GET     /users						 controllers.HomeController.getAllUser()
+GET		/addUser					controllers.HomeController.addUser(request : Request)
 POST 	/addUser					controllers.HomeController.saveUser(request : Request)
 GET		/edit/:userId			controllers.HomeController.editUser(userId  :  Integer)
 POST	/edit					controllers.HomeController.updateUser(request : Request)
-GET		/bodyParse				controllers.HomeController.bodyParse(request :Request)
-GET 		/login			controllers.HomeController.loginUser()
+GET 		/login			controllers.HomeController.loginUser(equest : Request)
 POST		/login			controllers.HomeController.signUp(request:Request)
-
-
-
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

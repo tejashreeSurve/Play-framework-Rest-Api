@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/teju/Downloads/usermangement-play/conf/routes
-// @DATE:Wed Jul 15 16:02:45 IST 2020
+// @DATE:Thu Jul 16 17:25:01 IST 2020
 
 import play.api.mvc.Call
 
@@ -30,12 +30,6 @@ package controllers {
       Call("POST", _prefix + { _defaultPrefix } + "edit")
     }
   
-    // @LINE:13
-    def loginUser(): Call = {
-      
-      Call("GET", _prefix + { _defaultPrefix } + "login")
-    }
-  
     // @LINE:8
     def addUser(): Call = {
       
@@ -49,12 +43,12 @@ package controllers {
     }
   
     // @LINE:12
-    def bodyParse(): Call = {
+    def loginUser(): Call = {
       
-      Call("GET", _prefix + { _defaultPrefix } + "bodyParse")
+      Call("GET", _prefix + { _defaultPrefix } + "login")
     }
   
-    // @LINE:14
+    // @LINE:13
     def signUp(): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "login")
@@ -68,14 +62,14 @@ package controllers {
   
   }
 
-  // @LINE:20
+  // @LINE:16
   class ReverseAssets(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:20
+    // @LINE:16
     def versioned(file:Asset): Call = {
       implicit lazy val _rrc = new play.core.routing.ReverseRouteContext(Map(("path", "/public"))); _rrc
       Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[play.api.mvc.PathBindable[Asset]].unbind("file", file))

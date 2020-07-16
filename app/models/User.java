@@ -8,6 +8,7 @@ public class User {
 	public String lName;
 	public String userEmail;
 	public String password;
+	public boolean isVerified = false;
 
 	public User() {
 
@@ -61,4 +62,11 @@ public class User {
 		this.password = password;
 	}
 
+	public boolean isVerified() {
+		return isVerified;
+	}
+
+	public void setVerified(boolean isVerified) {
+		this.isVerified = isVerified;
+	}
 }
