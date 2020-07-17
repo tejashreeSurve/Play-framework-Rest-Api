@@ -3,14 +3,17 @@
 # ~~~~
 
 # An example controller showing a sample home page
-#GET     /		                     controllers.HomeController.index
+#GET    /		                     controllers.HomeController.index
 GET     /users						 controllers.HomeController.getAllUser()
-GET		/addUser					controllers.HomeController.addUser()
-POST 	/addUser					controllers.HomeController.saveUser(request : Request)
-GET		/edit/:userId/:token			controllers.HomeController.editUser(userId  :  Integer,token :String)
-POST	/edit					controllers.HomeController.updateUser(request : Request)
-GET 		/login			controllers.HomeController.loginUser(equest : Request)
-POST		/login			controllers.HomeController.signUp(request:Request)
-GET		/validate/:token		controllers.HomeController.validateUser(token : String)
+GET		/addUser					 controllers.HomeController.addUser()
+POST 	/addUser				     controllers.HomeController.saveUser(request : Request)
+GET		/edit/:userId/:token		 controllers.HomeController.editUser(userId  :  Integer,token :String)
+POST	/edit					     controllers.HomeController.updateUser(request : Request)
+GET 	/login			             controllers.HomeController.loginUser(equest : Request)
+POST	/login			             controllers.HomeController.signUp(request:Request)
+GET		/validate/:token		     controllers.HomeController.validateUser(token : String)
+GET		/logout/:token		         controllers.HomeController.logout(token : String)
+
+
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

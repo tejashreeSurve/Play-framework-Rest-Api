@@ -112,5 +112,10 @@ public class HomeController extends Controller {
 		userServices.updateUser(userIsValidate);
 		return ok(views.html.index.render("User is Successfully Validate"));
 	}
+	
+	public Result logout(String token) {
+		jwtToken.refreshToken(token);
+		return ok(views.html.index.render("Successfully Logout"));
+	}
 
 }
